@@ -6,7 +6,7 @@ for [Bitcoin Core](https://github.com/bitcoin/bitcoin ).
 Allow to use any [Bitcoin RPC method](https://developer.bitcoin.org/reference/rpc/)
 
 
-![License]
+![Version]![License]
 
 # Install
 ```bash
@@ -41,11 +41,11 @@ async def test():
     print(donate_tx)
     # >>> bd38d3e6c7ab8c25e183e818829e1f0e179af12ef418fa6f4f27c76ef77c924
 
-    # Errors are raises as JSONRPCException with code and message
+    # Errors are raises as JSONRPCException with .code and .message attrs
     try:
         await cli.walletpassphrase("BadPassword")
     except JSONRPCException as ex:
-        print(ex.message)
+        print(ex.code, ex.message)
         # >>> -14 Error: The wallet passphrase entered was incorrect.
 
 asyncio.run(test())
@@ -53,3 +53,4 @@ asyncio.run(test())
 
 [License]: https://img.shields.io/github/license/biobdeveloper/zverobot
 [Python]: https://img.shields.io/pypi/pyversions/aiobtcrpc
+[Version]: https://img.shields.io/pypi/v/aiobtcrpc
